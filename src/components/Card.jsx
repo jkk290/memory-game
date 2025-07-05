@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { fetchImage } from "../utils/fetchImage"
 
-export function Card({ name }) {
+export function Card({ id, name, clicked, handleClick }) {
     const [imageUrl, setImageUrl] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,11 +22,12 @@ export function Card({ name }) {
 
     return (
         <>
-            <div className="card">
+            <div className="card" onClick={() => handleClick(id)}>
                 {loading ? <p>Loading...</p> : null}
                 {error !== null ? <p>{error}</p> : null}
                 <img src={imageUrl} alt={name} />
                 <h1>{name}</h1>
+                <p>Clicked: {clicked ? 'true' : 'false'}</p>
             </div>
         </>
     )

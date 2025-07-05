@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import { Card } from './components/Card'
+import { CardGrid } from './components/CardGrid'
 
 function App() {  
 
   return (
     <>
-      <Card name='Phantom Nishoba'/>
+      <CardGrid />
     </>
   )
 }

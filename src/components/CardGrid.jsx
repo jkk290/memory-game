@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Card } from "./Card"
 
-export function CardGrid() {
+export function CardGrid({ updateScore }) {
     const [cardsArray, setCardsArray] = useState([
     {id: 1, name: "Y'shtola Night's Blessed", clicked: false}, 
     {id: 2, name: "Lightning, Army of One", clicked: false},
@@ -20,6 +20,7 @@ export function CardGrid() {
                 card.id === id ? {...card, clicked: !card.clicked } : card
             );
         })
+        updateScore();
     }
 
     return (

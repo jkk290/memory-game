@@ -14,13 +14,39 @@ export function CardGrid({ updateScore }) {
     {id: 9, name: "Tidus, Yuna's Guardian", clicked: false}
   ])
 
-    function handleClick(id) {
-        setCardsArray(prevCards => {
-            return prevCards.map(card => 
+    function handleClick(id) {      
+        if (checkValidSelection(id)) {
+            updateScore();
+            setCardsArray(prevCards => {
+                return prevCards.map(card => 
                 card.id === id ? {...card, clicked: !card.clicked } : card
-            );
-        })
-        updateScore();
+                );
+            })
+            shuffleArray();
+
+        }
+        
+    }
+
+    function checkValidSelection(id) {
+        let index = cardsArray.findIndex(card => card.id === id);
+        if (!cardsArray[index].clicked) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function shuffleArray() {
+        const shuffledArray = [...cardsArray];
+
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        setCardsArray(shuffledArray);
     }
 
     return (

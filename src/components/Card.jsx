@@ -27,7 +27,6 @@ export function Card({ id, name, clicked, handleClick }) {
                 {error !== null ? <p>{error}</p> : null}
                 <img src={imageUrl} alt={name} />
                 <h1>{name}</h1>
-                <p>Clicked: {clicked ? 'true' : 'false'}</p>
             </div>
         </>
     )

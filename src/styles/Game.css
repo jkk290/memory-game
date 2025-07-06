@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.score-info {
+    margin: 2px;
+}
+
+.game-message {
+    font-size: 2rem;
+}
+
+.card-grid {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: rgb(47, 42, 75);
+    max-width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card img {
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.card h1 {
+    font-size: 1.20rem;
+}
